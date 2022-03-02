@@ -1,0 +1,12 @@
+C:\Users\Sticky\AppData\Roaming\XIVLauncher\devPlugins\LogsPlugin\logsPlugin.json
+C:\Users\Sticky\AppData\Roaming\XIVLauncher\devPlugins\LogsPlugin\goat.png
+C:\Users\Sticky\AppData\Roaming\XIVLauncher\devPlugins\LogsPlugin\LogsPLugin.deps.json
+C:\Users\Sticky\AppData\Roaming\XIVLauncher\devPlugins\LogsPlugin\LogsPLugin.dll
+C:\Users\Sticky\AppData\Roaming\XIVLauncher\devPlugins\LogsPlugin\LogsPLugin.pdb
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.csproj.AssemblyReference.cache
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.AssemblyInfoInputs.cache
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.AssemblyInfo.cs
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.csproj.CoreCompileInputs.cache
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.dll
+C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.pdb
