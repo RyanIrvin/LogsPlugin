@@ -10,3 +10,10 @@ C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.AssemblyI
 C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.csproj.CoreCompileInputs.cache
 C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.dll
 C:\Users\Sticky\Desktop\LogsPlugin\LogsPLugin\obj\x64\Debug\LogsPLugin.pdb
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.csproj.AssemblyReference.cache
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.AssemblyInfoInputs.cache
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.AssemblyInfo.cs
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.csproj.CoreCompileInputs.cache
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.dll
+C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\obj\x64\Debug\LogsPlugin.pdb

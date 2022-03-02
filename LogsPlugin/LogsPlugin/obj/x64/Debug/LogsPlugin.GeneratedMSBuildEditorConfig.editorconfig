@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = LogsPlugin
-build_property.ProjectDir = C:\Users\Sticky\Desktop\LogsPlugin\LogsPlugin\
+build_property.ProjectDir = C:\Users\Sticky\RiderProjects\LogsPlugin\LogsPlugin\LogsPlugin\

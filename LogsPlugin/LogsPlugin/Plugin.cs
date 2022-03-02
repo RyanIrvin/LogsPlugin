@@ -3,6 +3,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
 using System.Reflection;
+using Dalamud.Game.ClientState.Party;
 
 namespace LogsPlugin
 {
@@ -17,6 +18,9 @@ namespace LogsPlugin
         private Configuration Configuration { get; init; }
         private PluginUI PluginUi { get; init; }
 
+        [PluginService]
+        private PartyList Party { get; set; }
+        
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
             [RequiredVersion("1.0")] CommandManager commandManager)
@@ -30,7 +34,7 @@ namespace LogsPlugin
             // you might normally want to embed resources and load them from the manifest stream
             var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
             var goatImage = this.PluginInterface.UiBuilder.LoadImage(imagePath);
-            this.PluginUi = new PluginUI(this.Configuration, goatImage);
+            this.PluginUi = new PluginUI(this.Configuration, goatImage, Party);
 
             this.CommandManager.AddHandler(commandName, new CommandInfo(OnCommand)
             {

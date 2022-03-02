@@ -1,6 +1,7 @@
 ﻿using ImGuiNET;
 using System;
 using System.Numerics;
+using Dalamud.Game.ClientState.Party;
 
 namespace LogsPlugin
 {
@@ -27,11 +28,14 @@ namespace LogsPlugin
             set { this.settingsVisible = value; }
         }
 
+        private PartyList partyList { get; set; }
+
         // passing in the image here just for simplicity
-        public PluginUI(Configuration configuration, ImGuiScene.TextureWrap goatImage)
+        public PluginUI(Configuration configuration, ImGuiScene.TextureWrap goatImage, PartyList partyList)
         {
             this.configuration = configuration;
             this.goatImage = goatImage;
+            this.partyList = partyList;
         }
 
         public void Dispose()
@@ -51,7 +55,7 @@ namespace LogsPlugin
             DrawMainWindow();
             DrawSettingsWindow();
         }
-
+        
         public void DrawMainWindow()
         {
             if (!Visible)
@@ -63,7 +67,12 @@ namespace LogsPlugin
             ImGui.SetNextWindowSizeConstraints(new Vector2(375, 330), new Vector2(float.MaxValue, float.MaxValue));
             if (ImGui.Begin("My Amazing Window", ref this.visible, ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
             {
-                ImGui.Text($"The random config bool is {this.configuration.SomePropertyToBeSavedAndWithADefault}");
+                //ImGui.Text($"The random config bool is {this.configuration.SomePropertyToBeSavedAndWithADefault}");
+                
+                ImGui.Text($"There are {partyList.Length.ToString()} members in your party.");
+                if(partyList.Length > 0)
+                    foreach(var partyMember in partyList)
+                        ImGui.Text(partyMember.Name.ToString());
 
                 if (ImGui.Button("Show Settings"))
                 {
