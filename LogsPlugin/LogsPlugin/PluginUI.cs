@@ -1,13 +1,21 @@
 ﻿using ImGuiNET;
 using System;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Numerics;
+using Dalamud.Data;
 using Dalamud.Game.ClientState.Party;
+using Dalamud.IoC;
+using FFXIVClientStructs.FFXIV.Client.UI.Info;
+using Lumina.Excel;
+using Lumina.Excel.GeneratedSheets;
 
 namespace LogsPlugin
 {
     // It is good to have this be disposable in general, in case you ever need it
     // to do any cleanup
-    class PluginUI : IDisposable
+    unsafe class PluginUI : IDisposable
     {
         private Configuration configuration;
 
@@ -22,20 +30,25 @@ namespace LogsPlugin
         }
 
         private bool settingsVisible = false;
+
         public bool SettingsVisible
         {
             get { return this.settingsVisible; }
             set { this.settingsVisible = value; }
         }
 
-        private PartyList partyList { get; set; }
-
+        private PartyList partyList;
+        private InfoProxyCrossRealm* cwParty;
+        private DataManager dataManager;
+        
         // passing in the image here just for simplicity
-        public PluginUI(Configuration configuration, ImGuiScene.TextureWrap goatImage, PartyList partyList)
+        public PluginUI(Configuration configuration, ImGuiScene.TextureWrap goatImage, PartyList partyList, DataManager dataManager)
         {
             this.configuration = configuration;
             this.goatImage = goatImage;
             this.partyList = partyList;
+            cwParty = InfoProxyCrossRealm.Instance();
+            this.dataManager = dataManager;
         }
 
         public void Dispose()
@@ -55,7 +68,7 @@ namespace LogsPlugin
             DrawMainWindow();
             DrawSettingsWindow();
         }
-        
+
         public void DrawMainWindow()
         {
             if (!Visible)
@@ -65,14 +78,23 @@ namespace LogsPlugin
 
             ImGui.SetNextWindowSize(new Vector2(375, 330), ImGuiCond.FirstUseEver);
             ImGui.SetNextWindowSizeConstraints(new Vector2(375, 330), new Vector2(float.MaxValue, float.MaxValue));
-            if (ImGui.Begin("My Amazing Window", ref this.visible, ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
+            if (ImGui.Begin("My Amazing Window", ref this.visible,
+                ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
             {
                 //ImGui.Text($"The random config bool is {this.configuration.SomePropertyToBeSavedAndWithADefault}");
+                int cwPartyIndex = 0;
+                int cwPartyCount = InfoProxyCrossRealm.GetGroupMemberCount(cwPartyIndex);
                 
-                ImGui.Text($"There are {partyList.Length.ToString()} members in your party.");
-                if(partyList.Length > 0)
-                    foreach(var partyMember in partyList)
-                        ImGui.Text(partyMember.Name.ToString());
+                ImGui.Text($"There are {cwPartyCount} members in your party.");
+                
+                for (int j = 0; j < cwPartyCount; j++)
+                {
+                    CrossRealmMember* partyMember = InfoProxyCrossRealm.fpGetGroupMember((uint) j, cwPartyIndex);
+                    string name = System.Text.Encoding.UTF8.GetString(partyMember->Name, 30).Trim();
+                    
+                    ImGui.Text($"{CleanString(name)} - {dataManager.Excel.GetSheet<World>().GetRow((uint) partyMember->HomeWorld).Name}");
+                }
+                
 
                 if (ImGui.Button("Show Settings"))
                 {
@@ -89,6 +111,19 @@ namespace LogsPlugin
             ImGui.End();
         }
 
+        private string CleanString(string str)
+        {
+            string newStr = string.Empty;
+            
+            foreach (char letter in str)
+                if (!letter.Equals((char)0))
+                    newStr += letter;
+                else
+                    break;
+
+            return newStr;
+        }
+        
         public void DrawSettingsWindow()
         {
             if (!SettingsVisible)
@@ -113,3 +148,4 @@ namespace LogsPlugin
         }
     }
 }
+
