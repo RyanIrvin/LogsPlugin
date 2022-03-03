@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fAWQHxVjLySoky19Ldu4Lv/gJXJ+Nd6dLAV+tCpUe4Ok1dq0RQio9fjlofcJ3VYUCxU084oBn++4ujf4Fbx/gA==",
+  "dgSpecHash": "JnU0kCM4f3/oxNQvwKhBNVpNK1TbJABx2FYhR912EJYcOq2IGksZA4k1vOSQsBCiuyFrYDwhDAoza9kQGWPD0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
+  "projectFilePath": "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sticky\\.nuget\\packages\\dalamudpackager\\2.1.5\\dalamudpackager.2.1.5.nupkg.sha512"
   ],

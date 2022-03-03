@@ -3,10 +3,14 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
 using System.Reflection;
+using Dalamud.Data;
+using Dalamud.Game.ClientState.Party;
+using FFXIVClientStructs.FFXIV.Client.Game.Group;
+using FFXIVClientStructs.FFXIV.Client.UI.Info;
 
 namespace LogsPlugin
 {
-    public sealed class Plugin : IDalamudPlugin
+    public unsafe sealed class Plugin : IDalamudPlugin
     {
         public string Name => "Sample Plugin";
 
@@ -17,6 +21,13 @@ namespace LogsPlugin
         private Configuration Configuration { get; init; }
         private PluginUI PluginUi { get; init; }
 
+        [PluginService]
+        private PartyList Party { get; set; }
+        private InfoProxyCrossRealm CwParty { get; set; }
+        
+        [PluginService]
+        internal static DataManager DataManager { get; private set; }
+        
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
             [RequiredVersion("1.0")] CommandManager commandManager)
@@ -30,7 +41,7 @@ namespace LogsPlugin
             // you might normally want to embed resources and load them from the manifest stream
             var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
             var goatImage = this.PluginInterface.UiBuilder.LoadImage(imagePath);
-            this.PluginUi = new PluginUI(this.Configuration, goatImage);
+            this.PluginUi = new PluginUI(this.Configuration, goatImage, Party, DataManager);
 
             this.CommandManager.AddHandler(commandName, new CommandInfo(OnCommand)
             {

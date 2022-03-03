@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj": {}
+    "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj": {
+    "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj": {
       "version": "0.0.0.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
+        "projectUniqueName": "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
         "projectName": "LogsPlugin",
-        "projectPath": "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
+        "projectPath": "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\LogsPlugin.csproj",
         "packagesPath": "C:\\Users\\Sticky\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sticky\\Desktop\\LogsPlugin\\LogsPlugin\\obj\\",
+        "outputPath": "C:\\Users\\Sticky\\RiderProjects\\LogsPlugin\\LogsPlugin\\LogsPlugin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sticky\\AppData\\Roaming\\NuGet\\NuGet.Config",
