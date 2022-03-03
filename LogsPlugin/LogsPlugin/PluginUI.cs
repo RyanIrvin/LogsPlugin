@@ -85,12 +85,16 @@ namespace LogsPlugin
                 int cwPartyIndex = 0;
                 int cwPartyCount = InfoProxyCrossRealm.GetGroupMemberCount(cwPartyIndex);
                 
-                ImGui.Text($"There are {cwPartyCount} members in your party.");
+                if (cwPartyCount > 0)
+                    ImGui.Text("There are {cwPartyCount} members in your party.");
+                else 
+                    ImGui.Text("You are not in a cross-world party.");
                 
                 for (int j = 0; j < cwPartyCount; j++)
                 {
+                    int maxNameLength = 30;
                     CrossRealmMember* partyMember = InfoProxyCrossRealm.fpGetGroupMember((uint) j, cwPartyIndex);
-                    string name = System.Text.Encoding.UTF8.GetString(partyMember->Name, 30).Trim();
+                    string name = System.Text.Encoding.UTF8.GetString(partyMember->Name, maxNameLength).Trim();
                     
                     ImGui.Text($"{CleanString(name)} - {dataManager.Excel.GetSheet<World>().GetRow((uint) partyMember->HomeWorld).Name}");
                 }
